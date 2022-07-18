@@ -11,7 +11,7 @@ const CountersList = () => {
   ];
 
   const [counters, setCounters] = useState(initialState);
-
+  console.log(counters.map(count => count))
   const handleDelete = (id) => {
     const newCounters = counters.filter((c) => c.id !== id);
     setCounters(newCounters);
@@ -43,6 +43,7 @@ const CountersList = () => {
   return (
     <>
       {counters.map((count) => (
+			
         <Counter
           key={count.id}
           onDelete={handleDelete}
@@ -50,6 +51,7 @@ const CountersList = () => {
           onDecrement={handleDecrement}
           {...count}
         />
+		  
       ))}
       <button className="btn btn-primary btn-sm m-2" onClick={handleReset}>
         Сброс
